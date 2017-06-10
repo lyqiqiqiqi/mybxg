@@ -52,7 +52,7 @@ define(['jquery','template','bootstrap'],function($,template){
 				url : '/api/teacher/handle',
 				data : {tc_id : tcId,tc_status: tcStatus},
 				dataType : 'json',
-				seccess : function(data){
+				success : function(data){
 					// console.log(data);
 					if(data.code == 200){
 						td.attr('data-status',data.result.tc_status);
