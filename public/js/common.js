@@ -1,4 +1,4 @@
-define(['jquery','template','cookie'],function($,template){
+define(['jquery','template','nprogress','cookie'],function($,template,nprogress){
     // 控制左侧菜单的展开和折叠
     $('.navs ul').prev('a').on('click', function () {
         $(this).next().slideToggle();
@@ -44,4 +44,8 @@ define(['jquery','template','cookie'],function($,template){
         //隐藏遮罩效果
         $('.overlay').hide();
     });
+
+    //进度条控制
+    nprogress.start();
+    nprogress.done();
 });
