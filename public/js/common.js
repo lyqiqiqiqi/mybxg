@@ -25,27 +25,25 @@ define(['jquery','template','nprogress','cookie'],function($,template,nprogress)
     var loginInfo = $.cookie('loginInfo') && JSON.parse($.cookie('loginInfo'));
     if(loginInfo){
         var loginTpl = '<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>';
-
-        var html = template.tender(loginTpl,loginInfo);
+        var html = template.render(loginTpl,loginInfo);
         $('#loginInfoTpl').html(html);
-
         // 渲染页面
         // $('.aside .profile').find('img').attr('src',loginInfo.tc_avatar);
         // $('.aside .profile').find('h4').text(loginInfo.tc_name);
     }
 
-    //加载遮罩效果
-    $(document).ajaxStart(function(){
-        //显示遮罩效果
+    // 加载遮罩效果
+    $(document).ajaxStart(function() {
+        // 显示遮罩效果
         $('.overlay').show();
-
-    })
-    $(document).ajaxStop(function(){
-        //隐藏遮罩效果
+    });
+    $(document).ajaxStop(function() {
+        // 隐藏遮罩效果
         $('.overlay').hide();
     });
 
-    //进度条控制
+    // 进度条控制
     nprogress.start();
     nprogress.done();
+    
 });
